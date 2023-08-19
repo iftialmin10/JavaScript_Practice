@@ -1,0 +1,16 @@
+body {
+  background-color: greenyellow;
+  font-family: cursive;
+  font-size: 40px;
+}
+
+h1 {
+  font-size: 40px;
+}
+.first {
+  color: blue;
+}
+#your-name{
+  background-color: rgb(214, 24, 33);
+  border: 5px dotted royalblue;
+}
