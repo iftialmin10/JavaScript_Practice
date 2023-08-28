@@ -194,3 +194,5 @@ setTimeout(() => {
 // h1.onmouseenter = function (e) {
 //   alert('onmoseenter: Great! You are reading the heading :D');
 // };
+
+// Event propagation
