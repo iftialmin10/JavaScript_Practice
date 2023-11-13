@@ -1,2 +1,0 @@
-*) Event propagation bubbling and capturing:
-In html when a event call , first target location is selected and parents to child go to the target from document and capture it. After capturing done start reverse to upward and this process occured by child to parents(called bubbling) until the document position reach. On the whole way of travelling of bubbling any parents can access the target value for his own purpose.
