@@ -1,0 +1,14 @@
+A nodelist is a collection of html_documentation. We can call nodelist as
+their index number . A nodelist looks like an array but we cant use push,
+pop . 
+
+Dom is an interface between java_script and browser. 
+
+Inheritance: By Inheritance child can access any method from parent 
+element.
+
+EventTarget is a another type of node which have addEventListener() and 
+removeEventListener(). EventTarget has two child Node and window both can
+EventTarget methods.
+
+ 

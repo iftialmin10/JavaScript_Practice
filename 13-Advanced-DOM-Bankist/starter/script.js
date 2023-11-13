@@ -8,7 +8,9 @@ const overlay = document.querySelector('.overlay');
 const btnCloseModal = document.querySelector('.btn--close-modal');
 const btnsOpenModal = document.querySelectorAll('.btn--show-modal');
 
-const openModal = function (e) {
+const openModal = function (e) { 
+  /*for preventing default behaviour we pass event through function and 
+  set the value*/
   e.preventDefault();
   modal.classList.remove('hidden');
   overlay.classList.remove('hidden');
@@ -19,6 +21,8 @@ const closeModal = function () {
   overlay.classList.add('hidden');
 };
 
+/* we use for_each instead of for loop, and here btnopenmodal is a 
+nodelist bcz its the result of querySelectorAll*/
 btnsOpenModal.forEach(btn => btn.addEventListener('click', openModal));
 
 btnCloseModal.addEventListener('click', closeModal);
