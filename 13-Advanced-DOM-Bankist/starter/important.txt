@@ -18,3 +18,92 @@ done start reverse to upward and this process occured by child to
 parents(called bubbling) until the document position reach. On the whole 
 way of travelling of bubbling any parents can access the target value for
 his own purpose.
+ 
+ HTML Collection: HTML collection is a so called live collection. That 
+ means that if the DOM changes then this collection is also immediately 
+ updated automatically. 
+
+ Only in html collection updated the changed value immediately but not 
+ the nodelist.
+
+By html collection we can programatically remove the value.
+
+getElementById not used Elements but getElementsByTagName and 
+getElementsByClassName both are using Elements
+
+Searching by ID is not working as like HTMLCollections, on the other hand 
+searching by tagname and classname both are ffollowing html collection.
+
+Dom element are uique . prepend and append are used for both inserting and 
+moving data.
+
+When we update style of html and css from js its worked as inline style. 
+So styles set directly in the DOM. We can read or access inline style 
+property from js file, but we cant access or read any style property 
+which are defined in the html and css file. But if we want to read 
+property from inside css file than use "getComputedStyle".
+
+Event propagation:
+java_script have 2 important property. They have a so-called capturing 
+phase and a bubbling phase. When we click a button then the DOM generates
+a click event. However this event is actually not generated at the target
+element. Instead the event is actually generated at the root of the document.
+And from there , the so-called capturing phase happens. Where the event then
+travels all the way down from the document route to the target element.
+As soon as the event reaches the target, target phase begins. Where events 
+can be handled right at the target. So event listeners wait for a certain
+event to happen on a certain element and as soon as the event occurs, it 
+runs the attached callback function. After reaching the target phase the 
+event then actually travels all the way up to the document route again. its
+called bubbling phase. As like capturing phase the event passes through 
+all its parent elements not siblings elements. 
+
+Document -> Element(<html>) -> Element(<body>) -> Element(<section>) ->
+Element(<p>) -> Element(<a>)
+
+Capturing phase: 
+Document -> Element(<html>) -> Element(<body>) -> Element(<section>) ->
+Element(<p>) -> Element(<a>)
+
+Bubbling phase:
+Element(<a>) -> Element(<p>) -> Element(<section>) -> Element(<body>) -> 
+Element(<html>) -> Document
+
+Events are listened by parents only in bubbling phase not in the capturing phase
+
+
+querySelectorAll will return a nodelist and then we can use them forEach
+method in order to attach an event handler to each of the elements that are
+in the nodelist 
+
+Event delegation: 
+In event delegation , we use the fact that events 
+bubble up and we do that by putting the addeventListener on a common 
+parent of all the elements that we are interested. In this method elements
+are bubbling up and in this process we can catch our necessary element 
+through parent and can handle them by addEventListener method. Here we 
+know the element originated from 
+In event delegation we need two steps:
+1) First we add the event listener to a common parent element of all the 
+elements that we are interested in. 
+2) Determine what element originated the event
+
+DOM traversing:
+DOM traversing is basically walking through  the DOM. Whoch means that we
+can select an element based on another element. Through DOM traversing we can
+travarse downwords, upwords and also sideways. 
+
+We use querySelector not only for document but also for element.
+
+querySelector and closest both works exactly same way but in opposite direction.
+Queryselector search children and closest search for the parent doesnt matter
+how deep they are.
+
+Mouseenter and mouseover both are same. But the big differnce that Mouseenter
+doesnt bubble.
+
+Refactoring:
+Refactoring means create new function. For creating refactoring we made 
+comparison all the similar function and take matching part only.
+
+
