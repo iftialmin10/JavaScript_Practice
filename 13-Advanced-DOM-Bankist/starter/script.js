@@ -403,6 +403,22 @@ const handleHover = function (e, opacity) {
 };
 
 // bind return a new function
+// Passing "argument" into handler
 nav.addEventListener('mouseover', handleHover.bind(0.5));
 
 nav.addEventListener('mouseout', handleHover.bind(1));
+
+// Sticky navigation
+
+const initialCoords = section1.getBoundingClientRect();
+
+console.log(initialCoords);
+
+// Scroll is an event work at window
+// Scroll event should  be avoided for firing every time
+window.addEventListener('scroll', function () {
+  console.log(window.scrollY); // here "scrollY" means we measure distance from top of the window to current scroll position
+
+  if (this.window.scrollY > initialCoords.top) nav.classList.add('sticky');
+  else nav.classList.remove('sticky');
+});
