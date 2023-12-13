@@ -422,3 +422,84 @@ window.addEventListener('scroll', function () {
   if (this.window.scrollY > initialCoords.top) nav.classList.add('sticky');
   else nav.classList.remove('sticky');
 });
+
+// Sticky navigation: Intersection observer API
+
+// function
+/* This callback function will get called each time that the observed 
+element or target element is intersecting the root element at the 
+threshold that we defined */
+
+// const obsCallback = function (entries, observer) {
+//   // here entries are actually an array of the threshold entries
+
+//   entries.forEach(entry => {
+//     console.log(entry);
+//   });
+// };
+
+// // object
+// // target element intersecting with view port.
+// const obsOption = {
+//   // 1st declare root
+//   root: null, // our target element to intersect. We can give target value or alternative null
+
+//   // 2nd declare threshold
+//   threshold: [0, 0.2],
+//   /* 10% this basically the percentage of intersection at which the
+//   observer callback will be called . here threshold at the percentage that
+//   we want to have visiable in our root or viewport*/
+// };
+
+// const observer = new IntersectionObserver(obsCallback, obsOption);
+// observer.observe(section1); // here section1 is target element
+
+//const header = document.querySelector('.header');
+const navHeight = nav.getBoundingClientRect().height;
+
+const stickyNav = function (entries) {
+  const [entry] = entries;
+  console.log(entry);
+  if (!entry.isIntersecting) nav.classList.add('sticky');
+  else nav.classList.remove('sticky');
+};
+
+const headerObserver = new IntersectionObserver(stickyNav, {
+  root: null, // null means entire viewport
+  threshold: 0, // 0 means when 0% visiable of header
+  rootMargin: `-${navHeight}px`,
+  /* rootMargin work for pixel. we set value for the target element height
+  if our website have different pages with different pixel size than we 
+  dont declare manually */
+}); // new IntersectionObserver(callbackfunction, option object)
+headerObserver.observe(header);
+
+// Reveal sections
+/// const allSections = document.querySelectorAll('.section');
+
+const revealSection = function (entries, observer) {
+  //destructuring
+  const [entry] = entries;
+  console.log(entry);
+
+  if (!entry.isIntersecting) return;
+
+  entry.target.classList.remove('section--hidden');
+
+  /* Unobserve:
+  when we visit or observe all the section or portion and no need to repeat
+  observe again then we simply use unobserve */
+  observer.unobserve(entry.target); // unobserve(which element should be unobserve)
+};
+
+const sectionObserver = new IntersectionObserver(revealSection, {
+  root: null,
+  threshold: 0.15,
+});
+
+/* we use forEach whenever we want to do something which does not involve 
+creating a new array*/
+allSections.forEach(function (section) {
+  sectionObserver.observe(section);
+  section.classList.add('section--hidden');
+});

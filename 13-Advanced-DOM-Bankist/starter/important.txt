@@ -107,3 +107,10 @@ Refactoring means create new function. For creating refactoring we made
 comparison all the similar function and take matching part only.
 
 
+Intersection observer API:
+This API allows our code to basically observe changes to the way that a 
+certain target element intersect another element or another way it 
+intersects the viewport. Thats mean how much target element portion 
+intersect with view port and when scrolling how much portion remain.
+When we set 20% thats mean target element intersect with 20% and also 
+notify us before remaining 20% is passing.
