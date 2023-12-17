@@ -569,8 +569,6 @@ const slider = function () {
     });
   };
 
-  createDots();
-
   const activateDot = function (slide) {
     // first deactivate all the slide then activated the needed one
     document
@@ -581,15 +579,12 @@ const slider = function () {
       .querySelector(`.dots__dot[data-slide="${slide}"]`)
       .classList.add('dots__dot--active');
   };
-  activateDot(0);
 
   const goToSlide = function (slide) {
     slides.forEach(
       (s, i) => (s.style.transform = `translateX(${100 * (i - slide)}%)`)
     );
   };
-
-  goToSlide(0);
 
   // Next slide
   const nextSlide = function () {
@@ -636,12 +631,37 @@ const slider = function () {
   dotContainer.addEventListener('click', function (e) {
     if (e.target.classList.contains('dots__dot')) {
       const { slide } = e.target.dataset;
-      console.log(slide);
+      //console.log(slide);
       // if our container name and dataset name are same then we can declare in that way
       goToSlide(slide);
-      activateDot(curSlide);
+      activateDot(slide);
     }
   });
 };
 
 slider();
+
+//DOM content loaded
+/*This event is fired by the document as soon as the HTML is completely 
+parsed. Which means that the HTML has been downloaded and been converted 
+to the DOM tree. This event not wait for images and other external 
+resources to load. Its just HTML and JS need to be loaded
+ */
+document.addEventListener('DOMContentLoaded', function (e) {
+  console.log('HTML parsed and DOM tree built!', e);
+});
+
+//
+window.addEventListener('load', function (e) {
+  console.log('Page fully loaded', e);
+});
+
+// //unload event is created immediately before a user is about to leave a page.
+// // this event asked user to 100% sure that they want to leave the page
+// window.addEventListener('beforeunload', function (e) {
+//   e.preventDefault();
+//   console.log(e);
+//   e.returnValue = 'message';
+// });
+
+//

@@ -114,3 +114,25 @@ intersects the viewport. Thats mean how much target element portion
 intersect with view port and when scrolling how much portion remain.
 When we set 20% thats mean target element intersect with 20% and also 
 notify us before remaining 20% is passing.
+
+DOM events lifecycle: is that the page is first accessed until the user
+leaves it. 
+
+Regular vs Async vs Deffer:
+
+Regular(End of body): 
+Script are fetched and executed after the HTML is completely parsed. Use it
+to support old browser.
+
+Async In Head:
+Script are fetched asynchronously and executed immediately. Usually the 
+DOMContentLoaded  event waits for all script to execute, except for async 
+script. So, DOMContentLoaded does not wait for an async script. Script not
+guranteed to execute in order. Use for 3rd-party script where order doesnt 
+matter.
+
+Deffer In Head:
+Script are fetched asynchronously and executed after the HTML is completely
+parsed. DOMContentLoaded event fires after defer script is executed. 
+Script are executed in order. This is overall the best solution. Use for 
+our script and when order matters.
