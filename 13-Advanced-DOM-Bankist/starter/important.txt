@@ -136,3 +136,6 @@ Script are fetched asynchronously and executed after the HTML is completely
 parsed. DOMContentLoaded event fires after defer script is executed. 
 Script are executed in order. This is overall the best solution. Use for 
 our script and when order matters.
+
+OOP: object oriented programming is a programming paradigm based on the 
+concept of object.
