@@ -139,3 +139,10 @@ our script and when order matters.
 
 OOP: object oriented programming is a programming paradigm based on the 
 concept of object.
+
+Constructor function start with capital letter.
+
+In object property means data and method means function.
+
+Class is a special type of function.
+
