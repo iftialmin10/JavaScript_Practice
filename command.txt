@@ -1,0 +1,12 @@
+Windows:
+1) current directory: dir
+2) change directory: cd {(pre dir = cd..), (next dir = cd dir_name(instead 
+writing dir full name use tab)), (two step back = cd ../..)}
+3) clear = cls
+4) create folder = mkdir folder_name 
+5) create file = echo > 'file_name.extension' or code file_name.extension
+6) create multi file = code file_name1 file_name2 file_name3
+(after create file must save it)
+7) delete file = del file_name1.extension
+8) moving file to parent folder = mv file_name.ext ../(for parent folder)
+9) delete folder = rmdir folder_name
