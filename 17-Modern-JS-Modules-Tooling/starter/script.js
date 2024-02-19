@@ -11,7 +11,7 @@
 
 // console.log(price, tq);
 
-//console.log('Importing module');
+console.log('Importing module');
 
 /*
  through '*' sign we can import all the value from exported module and 
@@ -29,19 +29,19 @@
 // sum('Burger', 5);
 // console.log(price, tq);
 
-// Default export
+// //Default export
 // import sum,  from './shoppingCart.js';
 
 // sum('Burger', 5);
 
-// Mixed with both of two export
-// import sum, { cart } from './shoppingCart.js';
+//Mixed with both of two export
+import sum, { cart } from './shoppingCart.js';
 
-// sum('Burger', 5);
-// sum('Pizza', 3);
-// sum('Cake', 4);
+sum('Burger', 5);
+sum('Pizza', 3);
+sum('Cake', 4);
 
-// console.log(cart);
+console.log(cart);
 
 // Top level await:
 /*
@@ -125,3 +125,63 @@ us to return values, which can become our public API
 
 // // Import
 // const {addToCart} = require('./shoppingCart.js')
+
+// Lodash library module
+// import cloneDeep from './node_modules/lodash-es/cloneDeep.js';
+
+/*
+ We dont need to write full path , we just say library name parrcel will 
+ then automatically find the path to this module and will simply 
+ impport it.
+*/
+import cloneDeep from 'lodash-es';
+
+const state = {
+  cart: [
+    { product: 'bread', quantity: 5 },
+    { product: 'mayo', quantity: 6 },
+  ],
+  user: { loggedIn: true },
+};
+
+const stateClone = Object.assign({}, state);
+const stateDeepClone = cloneDeep(state);
+
+state.user.loggedIn = false;
+
+console.log(stateClone);
+
+console.log(stateDeepClone);
+
+/*
+ module.hot restrict to relaod our page which is helpful at maintaining 
+ period. State is maintained when we reload the page
+*/
+if (module.hot) {
+  module.hot.accept();
+}
+
+// Converting class to ES5
+class Person {
+  greeting = 'Hey';
+  constructor(name) {
+    this.name = name;
+    console.log(`${this.greeting}, ${this.name}`);
+  }
+}
+
+const ifti = new Person('Ifti');
+console.log('ifti' ?? null);
+
+console.log(cart.find(el => el.quantity >= 2));
+Promise.resolve('TEST').then(x => console.log(x));
+
+// Full library of polyfill
+import 'core-js/stable';
+
+// For specific method of polyfill
+// import 'core-js/stable/array/find';
+// import 'core-js/stable/array/promise';
+
+// Polyfilling asyync function
+import 'regenerator-runtime/runtime.js';
